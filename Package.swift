@@ -5,6 +5,10 @@ import PackageDescription
 
 let package = Package(
     name: "Beady",
+	platforms: [.macOS(.v10_11),
+				.iOS(SupportedPlatform.IOSVersion.v12),
+				.tvOS(SupportedPlatform.TVOSVersion.v12),
+				.watchOS(SupportedPlatform.WatchOSVersion.v3)],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(

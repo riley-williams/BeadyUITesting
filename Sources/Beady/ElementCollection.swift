@@ -12,7 +12,7 @@ public protocol ElementCollection {
 	associatedtype Element: InterfaceElement, IdentifiableElement
 	
 	static func forEach(_ closure: (XCUIElement) throws -> Void) throws
-	static func count(equals: Int) throws
+	static var count: Int { get }
 }
 
 public extension ElementCollection {
@@ -20,17 +20,15 @@ public extension ElementCollection {
 		try elements.lazy.filter(\.exists).forEach(closure)
 	}
 	
-	static func count(equals count: Int) throws {
-		guard count == elements.count else {
-			throw ElementCollectionError.expectedCountEquals(count, elements.count)
-		}
+	static var count: Int {
+		elements.count
 	}
 	
 	private static var elements: [XCUIElement] {
-		XCUIApplication()[keyPath: Element.kind].matching(identifier: Element.identifier).allElementsBoundByIndex
+		XCUIApplication()[keyPath: Element.kind].matching(identifier: Element.identifier).allElementsBoundByAccessibilityElement
 	}
 }
 
 public enum ElementCollectionError: Error {
-	case expectedCountEquals(Int, Int)
+	
 }
