@@ -18,14 +18,17 @@ public extension TappableElement {
 		guard element.isHittable, element.isEnabled else {
 			throw TappableElementError.expectedEnabled
 		}
+		#if os(macOS)
+		element.tap()
+		#else
 		element.tap(withNumberOfTaps: taps, numberOfTouches: touches)
+		#endif
 	}
 }
 
 public enum TappableElementError: Error {
 	case expectedEnabled
 	case expectedDisabled
-//	case expectedTextToMatch(String)
 }
 
 public extension TappableElement where Self: IdentifiableElement {
