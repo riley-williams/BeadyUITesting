@@ -8,13 +8,14 @@
 import Foundation
 import XCTest
 
-public protocol EditableTextElement: TextElement {
+public protocol EditableTextElement: TextElement, TappableElement {
 	static func type(_ text: String) throws
 }
 
 public extension EditableTextElement {
 	static func type(_ text: String) throws {
 		let element = try locate()
+		try tap()
 		element.typeText(text)
 	}
 }
