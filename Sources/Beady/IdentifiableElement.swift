@@ -1,5 +1,5 @@
 //
-//  VisibleElement.swift
+//  IdentifiableElement.swift
 //  
 //
 //  Created by Riley Williams on 3/16/21.
