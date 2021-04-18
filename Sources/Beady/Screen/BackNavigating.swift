@@ -10,5 +10,6 @@ import XCTest
 
 
 public protocol BackNavigating {
+	/// Navigates back to the previous screen
 	static func navigateBack() throws
 }
