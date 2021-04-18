@@ -21,14 +21,4 @@ public enum ScreenError: Error {
 	case expectedToBePresented
 }
 
-public extension Screen where Self: NavigationBarTitleIdentifiable {
-	static func presented() throws {
-		guard XCUIApplication()
-				.navigationBars
-				.staticTexts[title]
-				.waitForExistence(timeout: 0.5)
-		else {
-			throw ScreenError.expectedToBePresented
-		}
-	}
-}
+

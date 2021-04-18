@@ -29,7 +29,7 @@ public extension InterfaceElement {
 
 /// Set the default timeout to 0.5 seconds
 public extension InterfaceElement {
-	static var timeout: Double { 1.0 }
+	static var timeout: Double { 0.5 }
 }
 
 public enum InterfaceElementError: Error {
