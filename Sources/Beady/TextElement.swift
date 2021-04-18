@@ -42,5 +42,5 @@ public enum TextElementError: Error {
 }
 
 public extension TextElement where Self: IdentifiableElement {
-	static var kind: KeyPath<XCUIApplication, XCUIElementQuery> { \.staticTexts }
+	static var kind: KeyPath<XCUIElement, XCUIElementQuery> { \.staticTexts }
 }

@@ -10,6 +10,6 @@ import XCTest
 
 /// An element that can be identified by an accessibility identifier
 public protocol IdentifiableElement {
-	static var kind: KeyPath<XCUIApplication, XCUIElementQuery> { get }
+	static var kind: KeyPath<XCUIElement, XCUIElementQuery> { get }
 	static var identifier: String { get }
 }

@@ -48,5 +48,5 @@ public enum TappableElementError: Error {
 }
 
 public extension TappableElement where Self: IdentifiableElement {
-	static var kind: KeyPath<XCUIApplication, XCUIElementQuery> { \.buttons }
+	static var kind: KeyPath<XCUIElement, XCUIElementQuery> { \.buttons }
 }

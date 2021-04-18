@@ -25,5 +25,5 @@ public extension EditableTextElement {
 }
 
 public extension EditableTextElement where Self: IdentifiableElement {
-	static var kind: KeyPath<XCUIApplication, XCUIElementQuery> { \.textFields }
+	static var kind: KeyPath<XCUIElement, XCUIElementQuery> { \.textFields }
 }

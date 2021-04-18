@@ -13,5 +13,5 @@ public protocol OtherElement: InterfaceElement {
 }
 
 public extension OtherElement where Self: IdentifiableElement {
-	static var kind: KeyPath<XCUIApplication, XCUIElementQuery> { \.otherElements }
+	static var kind: KeyPath<XCUIElement, XCUIElementQuery> { \.otherElements }
 }
