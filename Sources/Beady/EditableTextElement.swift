@@ -18,6 +18,10 @@ public extension EditableTextElement {
 		try tap()
 		element.typeText(text)
 	}
+	
+	static func done() throws {
+		try type("\n")
+	}
 }
 
 public extension EditableTextElement where Self: IdentifiableElement {
