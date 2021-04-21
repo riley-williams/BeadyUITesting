@@ -19,11 +19,11 @@ public protocol InterfaceElement {
 	static func locate() throws -> XCUIElement
 	
 	/// Container element, defaults to XCUIApplication()
-	static var container: XCUIElement { get }
+	static func container() throws -> XCUIElement
 }
 
 public extension InterfaceElement {
-	static var container: XCUIElement { XCUIApplication() }
+	static func container() -> XCUIElement { XCUIApplication() }
 }
 
 public extension InterfaceElement {
@@ -46,7 +46,7 @@ public enum InterfaceElementError: Error {
 
 public extension InterfaceElement where Self: IdentifiableElement {
 	static func locate() throws -> XCUIElement {
-		let element = container[keyPath: kind][identifier].firstMatch
+		let element = try container()[keyPath: kind][identifier].firstMatch
 		guard element.waitForExistence(timeout: timeout) else {
 			throw InterfaceElementError.expectedToLocate
 		}
